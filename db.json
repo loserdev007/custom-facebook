@@ -1,0 +1,17 @@
+{
+   "bal": [
+      {
+         "id": 1,
+         "name": "Nahid Hasan",
+         "email": "nahidhasan@gmail.com",
+         "age": 23
+      },
+      {
+         "id": 2,
+         "name": "Md Nahid",
+         "email": "mdNahid@gmail.com",
+         "age": 22
+      }
+
+   ]
+}

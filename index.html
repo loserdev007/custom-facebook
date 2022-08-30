@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>API Test</title>
+   <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://kit.fontawesome.com/7253e1db26.js" crossorigin="anonymous"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>   
+   <header>
+      <h1>API Test</h1>
+      
+      <button id="log-out" class="btn btn-primary btn-lg">Log Out</button>
+   </header>
+
+   <section class="">
+      
+      <!-- Modal -->
+      <div id="modal-container" class="modal-container d-none">
+         <div id="sign-in" class="mModal p-5 rounded d-none flex-column justify-content-center">
+            <div class="wait rounded justify-content-center align-items-center">
+               <div class="spinner-border text-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="sIn-email" class="form-label">Email address</label>
+               <input type="email" class="form-control" id="sIn-email">
+            </div>
+            <div class="mb-4">
+               <label for="sIn-pass" class="form-label">Password</label>
+               <input type="password" class="form-control" id="sIn-pass">
+               <div class="form-text">Must be 8-20 characters long.</div>
+            </div>
+            <div class="d-flex">
+               <button id="sIn-submit" class="btn btn-primary w-25">Sign In</button>
+               <button id="sUp-change" class="btn btn-outline-primary w-25 ms-5">Sign Up</button>
+            </div>
+            </div>
+            <div id="sign-up" class="mModal p-5 rounded d-none flex-column justify-content-center">
+               <div class="wait rounded justify-content-center align-items-center">
+                  <div class="spinner-border text-dark" role="status">
+                  <span class="visually-hidden">Loading...</span>
+               </div>
+            </div>
+            <div class="row mb-3">
+               <div class="col-6">
+                  <label for="sUp-fname" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="sUp-fname">
+               </div>
+               <div class="col-6">
+                  <label for="sUp-lname" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="sUp-lname">
+               </div>
+            </div>
+            <div class="mb-3">
+               <label for="sUp-email" class="form-label">Email address</label>
+               <input type="email" class="form-control" id="sUp-email">
+            </div>
+            <div class="mb-4">
+               <label for="sUp-pass" class="form-label">Password</label>
+               <input type="password" class="form-control" id="sUp-pass">
+               <div class="form-text">Must be 8-20 characters long.</div>
+            </div>
+            <div class="d-flex">
+               <button id="sUp-submit" class="btn btn-primary w-25">Sign Up</button>
+               <button id="sIn-change" class="btn btn-outline-primary w-25 ms-5">Sign In</button>
+            </div>
+            
+         </div>
+      </div>
+      
+      
+      
+
+      <div class="container">
+         <div id="main" class="row g-4">
+            <div class="others col-3">
+s
+            </div>
+            <div class="middle col-6">
+               <div class="add-post">
+                  <h3 class="mb-3 text-center">Post Something</h3>
+                  <input id="post-modal-trigger" type="text" class="w-100 rounded-pill" placeholder="Wanna share your thoughts?">
+                  <div id="post-modal-container" class="modal-container d-none">
+                     <div class="mModal p-5 rounded d-flex flex-column justify-content-center">
+                        <div class="modal-header mb-4">
+                           <h5 class="modal-title">Post</h5>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal(this)"></button>
+                         </div>
+                        <div class="wait rounded justify-content-center align-items-center">
+                           <div class="spinner-border text-dark" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                           </div>
+                        </div>
+                        <textarea name="" id="newpost-content" cols="20" rows="5"></textarea>
+                        <button id="new-post" class="mt-4 btn btn-primary">Post</button>
+                     </div>
+                  </div>
+               </div>
+               <div id="newsfeed" class="all-posts">
+                  <h3 class="mb-3 text-center">All Posts</h3>
+               </div>
+            </div>
+            <div class="others-2 col-3">
+
+            </div>
+
+         </div>
+       </div>
+   </section>
+   <!-- <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+      import { getFirestore, doc, getDoc, setDoc, collection, addDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCvOuIXLm6MyTUFJF7tZ19ayOouogSLNhw",
+        authDomain: "custom-facebook-3ec5b.firebaseapp.com",
+        projectId: "custom-facebook-3ec5b",
+        storageBucket: "custom-facebook-3ec5b.appspot.com",
+        messagingSenderId: "845138997867",
+        appId: "1:845138997867:web:2744b7ae683a255424f72e"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      export const db = getFirestore(app);
+    </script> -->
+   <script src="app.js"></script>
+</body>
+</html>

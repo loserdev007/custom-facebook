@@ -1,0 +1,261 @@
+/* Define Font Families and Names */
+@font-face {
+   font-family: hMedium;
+   src: url(fonts/JosefinSans-Medium.ttf);
+   font-weight: 500;
+   font-style: normal;
+}
+@font-face {
+   font-family: hSemi;
+   src: url(fonts/JosefinSans-SemiBold.ttf);
+   font-weight: 600;
+   font-style: normal;
+}
+@font-face {
+   font-family: hBold;
+   src: url(fonts/JosefinSans-Bold.ttf);
+   font-weight: bold;
+   font-style: normal;
+}
+@font-face {
+   font-family: tRegular;
+   src: url(fonts/Nunito-Regular.ttf);
+   font-size: 400;
+   font-style: normal;
+}
+@font-face {
+   font-family: tMedium;
+   src: url(fonts/Nunito-Medium.ttf);
+   font-size: 500;
+   font-style: normal;
+}
+@font-face {
+   font-family: tBold;
+   src: url(fonts/Nunito-ExtraBold.ttf);
+   font-size: 900;
+   font-style: normal;
+}
+
+
+body{
+   background-color: #202124;
+}
+
+p{
+   font-family: tRegular;
+}
+
+input{
+   border: 0;
+   background-color: #2b2d31;
+   height: 40px;
+   padding: 20px;
+}
+input:focus{
+   border: 0;
+   outline: transparent;
+}
+
+
+#log-out{
+   position: absolute;
+   top: 5%;
+   right: 5%;
+}
+
+
+
+
+
+.card{
+   background-color: #aef7ff17;
+   /* height: 100%; */
+}
+.special{
+   color: #00d7ffed;
+   font-weight: bold;
+   font-family: tBold;
+}
+.buttons button{
+   background-color: #aef7ff17;
+   border: 2px solid #303136;
+}
+.buttons button:hover{
+   background-color: #aef7ff38;
+   border: 2px solid transparent;
+   
+}
+.post-title{
+   color: white;
+   font-family: hBold;
+   height: 85px;
+   word-break: break-all;
+}
+.post-text{
+   color: #b3b3b3;
+   font-family: tRegular;
+   height: 120px;
+}
+
+
+
+
+
+header{
+   width: 100%;
+   height: 400px;
+   background-color: #18181b;
+   border-bottom: 2px solid #2e2f33;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+header h1{
+   color: white;
+   font-family: hBold;
+   font-size: 80px;
+}
+
+
+
+section{
+   margin: 4% 0 6% 0;
+}
+
+
+
+
+
+
+
+
+.add-post{
+   padding: 0 0 5% 0;
+   margin: 0 0 5% 0;
+   border-bottom: 2px solid #3c3e44;
+}
+.add-post h3{
+   color: #fafafac4;
+   font-size: 22px;
+}
+
+.all-posts{
+   padding: 0 0 5% 0;
+   margin: 0 0 5% 0;
+}
+.all-posts h3{
+   color: #fafafac4;
+   font-size: 22px;
+}
+
+
+
+.post{
+   color: white;
+   background-color: #2b2d31;
+   border-radius: 5px;
+   padding: 6%;
+}
+.post + .post{
+   margin-top: 4%;
+}
+.post .user-name{
+   font-size: 16px;
+   font-weight: bold;
+}
+.post .post-details{
+   font-size: 13px;
+   font-weight: 300;
+}
+.post .content{
+   margin-top: 5%;
+   font-size: 16px;
+   font-weight: 500;
+   color: rgb(202, 202, 202);
+}
+.post .extras{
+   margin-top: 6%;
+   padding: 2% 0 0 0;
+   border-top: 1px solid #46484e;
+}
+.post .total-likes{
+   display: flex;
+   align-items: center;
+   font-size: 15px;
+}
+
+.post .total-likes .like{
+   font-size: 18px;
+   display: inline-block;
+   margin-right: 10px;
+   color: rgb(0, 255, 149);
+}
+.post .extras .feedback *{
+   background-color: #3e4147;
+   padding: 7px 0;
+   width: 32%;
+   outline: 0;
+   border: 0;
+   text-align: center;
+   color: white;
+}
+
+
+
+.modal-container{
+   /* display: none !important; */
+   width: 100vw;
+   position: fixed;
+   height: 100vh;
+   top: 0;
+   left: 0;
+   background-color: #0000003c;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   user-select: none;
+}
+.modal-container .mModal{
+   width: 40%;
+   /* height: 50%; */
+   background-color: white;
+   position: relative;
+   z-index: 100000 !important;
+}
+.wait{
+   display: none;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: #ffffff9c;
+   left: 0;
+   top: 0;
+}
+
+.post-modal-trigger{
+   outline: 0;
+   border: 0;
+   height: 45px;
+   padding: 0 25px;
+   background-color: #2b2d31;
+   color: white;   
+}
+.post-modal-trigger::placeholder{
+   color: rgba(255, 0, 0, 0.214)(186, 186, 186);
+}
+
+
+#newpost-content{
+   outline: 0;
+   border: 2px solid rgb(223, 223, 223) !important;
+   padding: 20px;
+   font-size: 18px;
+}
+
+
+button[data-liked="like"]{
+   background-color: #374562 !important;
+}
+button[data-liked="dislike"]{
+   background-color: #3e4147 !important;
+}
